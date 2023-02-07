@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import classes from "./Card.module.css";
 
+import hetkoLogo from "../../assests/Hekto.svg";
 const Card = (props) => {
   
   return (
@@ -8,36 +9,25 @@ const Card = (props) => {
 <div className={classes.main}>
     
         {
-        props.data.map((x) => {
-const card=x._source;
-console.log(card.body[0]);
+        props.data.map((card) => {
 
-          const totalAmount = `€${card.simAmount[0].toFixed(2)}`;
+
+          
           return (
             <Fragment>
-              <div  key={card.id}  className={classes["card-contrainer"]}>
+              <div key={card.id}  className={classes["card-contrainer"]}>
                 <div  className={classes.top}>
-                  <div className={classes.simType} >{card.title[0]}</div>
-                  <div  className={classes.simValue} >{card.bandwidth[0]}</div>
-                  <div  className={classes.dataValue} >data</div>
-                  
-
+                <img className={classes.productImg} src={card.image} alt="products" />
                 </div>
-                <div  className={classes.middle}>
-                  <div className={classes.simAmount}>{totalAmount}</div>
-                  <div  className={classes.simValidity} >{card.simValidity}</div>
-                  <button onSubmit={handleClick} className={classes.orderButton} onClick={props.showPopUp}>
-                    <div className={classes.orderButtonText}>
-                    Order Sim
-                        </div></button>
-                </div>
+               
                 <div className={classes.bottom} >
-                <div className={classes.nationalData} dangerouslySetInnerHTML={{ __html: card.body[0]}} />
+                <div className={classes.title}> {card.title}</div>
+                <div className={classes.rating}> Rating: {card.rating.rate}</div>
                 </div>
               </div>
             </Fragment>
-          );
-        })}
+           );
+        })} 
       
     </div>
   );

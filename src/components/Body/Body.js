@@ -1,13 +1,14 @@
 
 import classes from './Body.module.css';
 import React, { Fragment, useEffect, useState } from 'react';
+import Card from './Card';
 
 function Body() {
   const [error, setError] = useState(null);
         const [isLoaded, setIsLoaded] = useState(false);
         const [items, setItems] = useState([]);
         useEffect(() => {
-            fetch("https://fakestoreapi.com/products?limit=5")
+            fetch("https://fakestoreapi.com/products?limit=4")
            .then(res => res.json())
               .then(
                 (result) => {
@@ -36,7 +37,7 @@ function Body() {
         </div>
         <div className={classes.item2}>
     
-    {/* <Card data={items} /> */}
+    <Card data={items} />
     
   </div>
         </div>
