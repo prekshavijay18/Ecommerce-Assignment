@@ -1,0 +1,24 @@
+.grid-container {
+    display: grid;
+    row-gap: 70px;
+    grid-template-areas:
+      "header1"
+      "card1";
+}
+.item1
+{
+    grid-area: header1;
+}
+.featured
+{
+    color: #1A0B5B;
+    position: relative;
+    font-size: 30px;
+    font-weight: 700;
+    top: 50%;
+    left: 45%;}
+
+.item2
+{
+    grid-area: card1;
+}

@@ -1,0 +1,8 @@
+
+.slide img {
+    max-height: 500px; 
+    width: 100%;
+}
+.box{
+    box-sizing: border-box;
+}
