@@ -10,7 +10,7 @@ import hetkoLogo from "../../assests/Hekto.svg";
 import search from "../../assests/search.png";
 import Banner from "./Banner";
 
-function Header() {
+function Header(props) {
   return (
     <Fragment>
       <div className={classes["grid-container"]}>
@@ -34,13 +34,13 @@ function Header() {
           <label className={classes.language}>Wishlist</label>
           <img className={classes.logo} src={heart} alt="wishlist" />
 
-          <img className={classes.logo} src={cart} alt="cart" />
+          <img className={classes.logo} src={cart} onClick={props.onShowPopUp} alt="cart" />
           <label className={classes.space}></label>
         </div>
         <div className={classes.item2}>
           <label className={classes.space}></label>
-          <img className={classes.logo} src={hetkoLogo} alt="HETKO_LOGO" />
-          <label className={classes.items}>Home</label>
+          <img className={classes.logo} src={hetkoLogo} alt="HETKO_LOGO" onClick={props.viewHome}/>
+          <label className={classes.items} onClick={props.viewHome}>Home</label>
           <label className={classes.items}>Pages</label>
           <label className={classes.items}>Products</label>
           <label className={classes.items}>Blog</label>

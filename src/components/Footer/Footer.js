@@ -3,14 +3,14 @@ import classes from './Footer.module.css';
 import React, { Fragment } from 'react';
 import hetkoLogo from "../../assests/Hekto.svg";
 
-function Footer() {
+function Footer(props) {
   return (
     <Fragment>
      <div className={classes.mainDiv}>
      <div className={classes.tab}>
       <table>
         <tr>
-          <th> <img className={classes.logo} src={hetkoLogo} alt="HETKO_LOGO" /></th>
+          <th> <img className={classes.logo} onClick={props.viewHome} src={hetkoLogo} alt="HETKO_LOGO" /></th>
           <th>Categories</th>
           <th>Customer Care</th>
           <th>Pages</th>
@@ -63,7 +63,7 @@ function Footer() {
     </div>
      </div>
      <div className={classes.smallDiv}>
-      sndnjks
+      
      </div>
      
     </Fragment>

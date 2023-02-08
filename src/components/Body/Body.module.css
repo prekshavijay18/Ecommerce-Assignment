@@ -3,7 +3,11 @@
     row-gap: 70px;
     grid-template-areas:
       "header1"
-      "card1";
+      "card1"
+      "header2"
+      "card2"
+      "header3"
+      "card3";
 }
 .item1
 {
@@ -22,3 +26,50 @@
 {
     grid-area: card1;
 }
+.item3
+{
+    grid-area: header2;
+}
+.item4
+{
+    grid-area: card2;
+}
+.item5
+{
+    grid-area: header3;
+}
+.item6
+{
+    grid-area: card3;
+}
+.tab
+{position: relative;
+    top: 60%;
+    left: 20%;
+
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+   
+}
+.items
+  {    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+   
+    color: #151875;}
+    .items:hover
+    {
+        font-weight: 400;
+font-size: 18px;
+line-height: 22px;
+text-decoration: underline;
+color: #FB2E86;
+    }
+    .items:after
+    {
+        font-weight: 400;
+font-size: 18px;
+line-height: 22px;
+text-decoration: underline;
+color: #FB2E86;
+    }
