@@ -38,13 +38,15 @@ function Body(props) {
   const [items2, setItems2] = useState([]);
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products?limit=4")
+    fetch("https://fakestoreapi.com/products?limit=6")
       .then((res) => res.json())
       .then(
         (result) => {
+          const newArr = result.map(v => ({...v, amount: 2}))
           console.log(result);
+          console.log(newArr);
           setIsLoaded(true); 
-          setItems(result);
+          setItems(newArr);
         },
         // Note: it's important to handle errors here
         // instead of a catch() block so that we don't swallow
@@ -61,7 +63,10 @@ function Body(props) {
       .then(
         (result) => {
           console.log(result);
-          const newResult = result.slice(0, 3);
+          const newArr = result.map(v => ({...v, amount: 1}))
+          console.log(result);
+          console.log(newArr);
+          const newResult = newArr.slice(0, 6);
           setIsLoaded(true);
           setItems2(newResult);
         },
@@ -91,19 +96,19 @@ function Body(props) {
           <label className={classes.featured}>Featured Products</label>
         </div>
         <div className={classes.item2}>
-          <Card viewDetails={props.viewDetails} onShowPopUp={props.onShowPopUp} data={items} />
+          <Card viewDetails={props.viewDetails} onShowPopUp={props.onShowPopUp} data={items.slice(0,4)} />
         </div>
         <div className={classes.item3}>
           <label className={classes.featured}>Latest Products</label>
           <div className={classes.tab}>
-            <label className={classes.items} onClick={showToggleHandler}>New Arrival</label>
+            <label className={classes.items} onClick={showToggleBackHandler}>New Arrival</label>
             <label className={classes.items}>Best Seller</label>
-            <label className={classes.items} onClick={showToggleBackHandler}>Featured</label>
+            <label className={classes.items} onClick={showToggleHandler}>Featured</label>
             <label className={classes.items}>Special Offer</label>
           </div>
         </div>
         <div className={classes.item4}>
-        {toggle&&<Card2 viewDetails={props.viewDetails} onShowPopUp={props.onShowPopUp} data={items.slice(0,3)}/>}
+        {toggle&&<Card2 viewDetails={props.viewDetails} onShowPopUp={props.onShowPopUp} data={items.slice(0,6)}/>}
           {!toggle&&<Card2 viewDetails={props.viewDetails} onShowPopUp={props.onShowPopUp} data={items2} />}
 
        

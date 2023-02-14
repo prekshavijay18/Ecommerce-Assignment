@@ -1,6 +1,7 @@
 .item1 {
   grid-area: header1;
   position: relative;
+  width: auto;
   height: 35px;
   background: #7E33E0;
   display: grid;
@@ -11,17 +12,22 @@
 {
     grid-column: span 4
 }
+.space2
+{
+    grid-column: span 2
+}
 .logo
 {    position: relative;
     top: 20%;}
 .item2 {
   grid-area: header2;
   position: relative;
+  width: auto;
   height: 50px;
   margin-top: 0px;
   margin-bottom: 0px;
   display: grid;
-  grid-template-columns:auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
+  grid-template-columns:auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
 
 }
 .grid-container {
@@ -52,3 +58,58 @@
   .items
   {    position: relative;
     top: 30%;}
+
+  .productsDropDown
+  {    position: relative;
+    width: 10%;
+    top: 25%;
+    left: 10%;
+    background-color: black;
+      -webkit-mask: url("../../assests/dropDown.svg") no-repeat center;
+      mask: url("../../assests/dropDown.svg") no-repeat center;
+      display: inline-block;
+  }
+  .badge {
+   
+    font-weight: bold;
+    position: relative;
+    bottom: 15%;
+    left: 2%;
+    font-size: 13px;
+  }
+ .cart
+ {
+  position: relative;
+  top: 20%;
+
+ }
+ .cart:hover{
+  cursor: pointer;
+ }
+ .mainLogo
+ {
+  position: relative;
+  top: 20%;
+ }
+ .mainLogo:hover{
+  cursor: pointer;
+ }
+ .home
+ {    position: relative;
+   top: 30%;}
+   .home:hover{
+    cursor: pointer;
+   }
+   .label_Pos_Left
+   {position: relative;
+    top: 13%;
+    left: 5%;}
+    .label_Pos_Right
+    {position: relative;
+     top: 13%;
+     right: 5%;}
+     .dropDown
+ {
+  position: relative;
+  top: 10%;
+ }

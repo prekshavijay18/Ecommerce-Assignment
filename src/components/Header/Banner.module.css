@@ -6,3 +6,34 @@
 .box{
     box-sizing: border-box;
 }
+.navDiv
+{
+    width: 100%;
+height: 250px;
+    background-color: #F6F5FF;;
+}
+.featured
+{
+    color: #1A0B5B;
+    position: relative;
+    font-size: 30px;
+    font-weight: 700;
+    top: 25%;
+    left: 13%;}
+    .nav
+{position: relative;
+    top: 25%;
+    left: 13%;
+    width: 15%;
+    display: grid;
+    grid-template-columns: auto auto auto;
+   
+}
+.act
+{
+    color: #FB2E86;
+}
+.viewHome:hover
+{
+cursor: pointer;
+}

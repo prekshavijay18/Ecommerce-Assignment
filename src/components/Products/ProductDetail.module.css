@@ -1,0 +1,95 @@
+.card {
+  position: relative;
+  width: 1170px;
+  height: 509px;
+  left: 14%;
+  background: #ffffff;
+  box-shadow: 0px 0px 25px 10px #f6f4fd;
+  border-radius: 2px;
+  margin-top: 10%;
+  margin-bottom: 20%;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  gap: 10px;
+}
+.div-container {
+  display: grid;
+  grid-template-areas:
+    "header1"
+    "header2"
+    "header3";
+    position: relative;
+    top: 17%;
+    left: 20%;
+}
+.item1 {
+  grid-area: header1;
+  width: 20%;
+}
+.item2 {
+  grid-area: header2;
+  width: 20%;
+}
+.item3 {
+  grid-area: header3;
+  width: 20%;
+}
+.mainImg {
+  width: 70%;
+  position: relative;
+  top: 15%;
+  right: 40%;
+
+}
+.details
+{    position: relative;
+    top: 10%;
+    right: 40%;
+}
+.title
+{font-size: 36px;
+    line-height: 42px;
+    text-align: center;
+    font-weight: 700;
+    color: #0D134E;}
+.rating
+{font-size: 20px;
+    line-height: 29px;
+    text-transform: capitalize;
+    font-weight: 400;
+    color: #151875;}
+    .star
+    {
+      
+    height: 15px;
+    position: relative;
+    left: 2%;
+  
+    }
+    .count
+{font-size: 20px;
+    line-height: 29px;
+    text-transform: capitalize;
+    font-weight: 400;
+    position: relative;
+    left:5%;
+    color: #151875;}
+    .desc
+
+    {font-size: 20px;
+    line-height: 29px;
+    text-transform: capitalize;
+    font-weight: 400;color: #A9ACC6;
+    }
+    .add
+    {color: #151875;
+    border-color: transparent;
+font-size: 20px;}
+.wish
+{
+    position: relative;
+    left:2%
+}

@@ -96,6 +96,9 @@
   height: 10%;
   color: white;
 }
+.details:hover{
+  cursor: pointer;
+}
 .quickadd {
   z-index: 1;
   position: absolute;
@@ -103,6 +106,8 @@
   padding-left: 25px;
   color: white;
 }
+.quickadd:hover
+{cursor: pointer;}
 .wishlist {
   z-index: 1;
   position: absolute;

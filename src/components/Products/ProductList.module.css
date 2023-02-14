@@ -1,0 +1,49 @@
+.divide {
+  position: relative;
+  top: 25%;
+  padding-left: 5%;
+  display: grid;
+  grid-template-columns: auto auto;
+  margin-top:10%;
+  margin-bottom: 20%;
+}
+
+.categories {
+  position: relative;
+  color: #151875;
+  font-size: 17px;
+  width: 65%;
+  display: grid;
+
+  row-gap: 50px;
+  grid-template-areas:
+    "main"
+    "cat1"
+    "cat2"
+    "cat3"
+    "cat4";
+}
+.main {
+  grid-area: main;
+}
+.item1 {
+  grid-area: cat1;
+}
+.item2 {
+  grid-area: cat2;
+}
+.item3 {
+  grid-area: cat3;
+}
+.item4 {
+  grid-area: cat4;
+}
+.products
+{
+  position: relative;
+  color: #151875;
+  
+  text-decoration: underline;
+  font-size: 20px;
+    bottom: 15%;
+}
