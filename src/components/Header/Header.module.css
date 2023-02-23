@@ -1,115 +1,174 @@
+.grid-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 .item1 {
-  grid-area: header1;
-  position: relative;
-  width: auto;
   height: 35px;
-  background: #7E33E0;
-  display: grid;
-  grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
+  background: #7e33e0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-family: "Josefin Sans", sans-serif;
   color: white;
 }
-.space
-{
-    grid-column: span 4
-}
-.space2
-{
-    grid-column: span 2
-}
-.logo
-{    position: relative;
-    top: 20%;}
-.item2 {
-  grid-area: header2;
+.header1Left {
+  display: flex;
+  padding: 10px 10px 10px 90px;
   position: relative;
-  width: auto;
-  height: 50px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  display: grid;
-  grid-template-columns:auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.header1Right {
+  display: flex;
+  padding: 10px 100px 10px 10px;
+  position: relative;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.emailDiv {
+  padding: 30px;
+  display: flex;
+  align-items: center;
+}
+.emailImg {
+  padding: 5px;
+}
 
+.phoneImg {
+  padding: 5px;
 }
-.grid-container {
-  display: grid;
-  grid-template-areas:
-    "header1"
-    "header2";
+.phoneDiv {
+  padding: 0px;
+  display: flex;
+  align-items: center;
 }
-.searchInput
-{    width: 100%;
-  height: 50%;
+
+.langDiv {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+.langImg {
+  padding: 5px;
+}
+
+.currDiv {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+.currImg {
+  padding: 5px;
+}
+
+.loginDiv {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+.loginImg {
+  padding: 5px;
+}
+.wishListDiv {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+.wishListImg {
+  padding: 5px;
+}
+.cartDiv {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+.cartImg {
+  padding: 5px;
+}
+.cartImg:hover {
+  cursor: pointer;
+}
+
+.badge {
+  font-weight: bold;
   position: relative;
-  top: 20%;}
-.searchDiv
-{    background:#FB2E86;
+  padding: 0px 0px 13px 0px;
+
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 13px;
+}
+
+.item2 {
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-family: "Josefin Sans", sans-serif;
+}
+.mainLogo {
+  position: relative;
+
+  padding: 10px 10px 20px 100px;
+}
+
+.mainLogo:hover {
+  cursor: pointer;
+}
+.header2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px;
+}
+.home {
+  padding: 30px;
+}
+.home:hover {
+  cursor: pointer;
+}
+
+.productsDiv {
+  padding: 20px 0px 20px 20px;
+}
+.productsDiv:hover {
+  cursor: pointer;
+}
+.products:hover {
+  cursor: pointer;
+}
+.blog {
+  padding: 15px;
+}
+.searchInput {
+  max-width: 300px;
+  min-width: 200px;
+  height: 50%;
+  top: 20%;
+  font-family: "Josefin Sans";
+}
+.searchDiv {
+  background: #fb2e86;
   width: 40%;
   height: 60%;
-  position: relative;
-  top: 20%;}
-  .searchImg
-  {
-    position: relative;
-    top: 15%;
-    left: 20%;
-    background:#FB2E86;
-    width: 50%;
-  }
-  .items
-  {    position: relative;
-    top: 30%;}
-
-  .productsDropDown
-  {    position: relative;
-    width: 10%;
-    top: 25%;
-    left: 10%;
-    background-color: black;
-      -webkit-mask: url("../../assests/dropDown.svg") no-repeat center;
-      mask: url("../../assests/dropDown.svg") no-repeat center;
-      display: inline-block;
-  }
-  .badge {
-   
-    font-weight: bold;
-    position: relative;
-    bottom: 15%;
-    left: 2%;
-    font-size: 13px;
-  }
- .cart
- {
-  position: relative;
   top: 20%;
+}
+.searchImg {
+  background: #fb2e86;
+  width: 30px;
+  height: 30px;
+}
 
- }
- .cart:hover{
+.productsDropDown {
+  padding: 3px 15px 0px 10px;
+  background-color: black;
+  -webkit-mask: url("../../assests/dropDown.svg") no-repeat center;
+  mask: url("../../assests/dropDown.svg") no-repeat center;
+  display: inline-block;
+}
+.productsDropDown:hover{
   cursor: pointer;
- }
- .mainLogo
- {
-  position: relative;
-  top: 20%;
- }
- .mainLogo:hover{
-  cursor: pointer;
- }
- .home
- {    position: relative;
-   top: 30%;}
-   .home:hover{
-    cursor: pointer;
-   }
-   .label_Pos_Left
-   {position: relative;
-    top: 13%;
-    left: 5%;}
-    .label_Pos_Right
-    {position: relative;
-     top: 13%;
-     right: 5%;}
-     .dropDown
- {
-  position: relative;
-  top: 10%;
- }
+}

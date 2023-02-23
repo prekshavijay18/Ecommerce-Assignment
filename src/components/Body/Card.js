@@ -3,7 +3,12 @@ import classes from "./Card.module.css";
 import cart from "../../assests/quickAdd.png";
 import wish from "../../assests/wishlist.png";
 import { DetailedViewContext } from "../../App";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../../redux/slice/cartSlice";
+
 const Card = (props) => {
+  const dispatch = useDispatch();
+
   const [display, setDisplay] = useState(0);
   const showButton = (e, id) => {
     e.preventDefault();
@@ -14,8 +19,13 @@ const Card = (props) => {
     e.preventDefault();
     setDisplay(0);
   };
-  const { item, showItemHandler } = useContext(DetailedViewContext);
+  //const { item, showItemHandler } = useContext(DetailedViewContext);
+  const addCartItem = (card) => {
+    dispatch(addToCart({ ...card }));
+  };
 
+  const item = useSelector((state) => state.cart.item);
+  console.log("inside card", item);
   const added = () => {
     alert("Added to cart");
   };
@@ -36,21 +46,12 @@ const Card = (props) => {
                 <img className={classes.productImg} src={card.image}></img>
                 {display == card.id && (
                   <Fragment>
-                    <button
-                      onClick={() => {
-                        showDetailsHandler(card.id);
-                      }}
-                      className={classes.details}
-                      key={card.id}
-                    >
-                      View Details
-                    </button>
-                    <img
+                         <img
                       onClick={() => {
                         // props.setId(card.id);
                         showCountHandler();
                         added();
-                        showItemHandler(card);
+                        addCartItem(card);
                       }}
                       src={cart}
                       className={classes.quickadd}
@@ -61,17 +62,27 @@ const Card = (props) => {
                       className={classes.wishlist}
                       key={card.id}
                     ></img>
+                    <button
+                      onClick={() => {
+                        showDetailsHandler(card.id);
+                      }}
+                      className={classes.details}
+                      key={card.id}
+                    >
+                      View Details
+                    </button>
+               
                   </Fragment>
                 )}
               </div>
 
               <div className={classes.bottom}>
-                <div className={classes.title}> {card.title}</div>
-                <div className={classes.rating}>
-                  {" "}
+                <label className={classes.title}> {card.title}</label>
+                <label className={classes.rating}>
+                  
                   Rating: {card.rating.rate}
-                </div>
-                <div className={classes.cost}> $ {card.price}</div>
+                </label>
+                <label className={classes.cost}> $ {card.price}</label>
               </div>
             </div>
           </Fragment>

@@ -12,7 +12,8 @@ function ProductList(props) {
   const [selectedItem, setSelectedItem] = useState("Jewelery");
   var selected = "";
 
-  const {productCategories, setProductCategories} = useContext(DetailedViewContext);
+  const { productCategories, setProductCategories } =
+    useContext(DetailedViewContext);
 
   // const selectionHandler = () => {
   //   selected = document.querySelector('input[name="Category"]:checked').value;
@@ -26,31 +27,33 @@ function ProductList(props) {
   // };
 
   const selectionHandler = (e) => {
-    const {name, value} = e.target;
-    setProductCategories(value)
+    const { name, value } = e.target;
+    setProductCategories(value);
   };
 
-
   useEffect(() => {
-    if(productCategories){
-      fetch(`https://fakestoreapi.com/products/category/${productCategories.toLowerCase()}?limit=4`)
-      .then((res) => res.json())
-      .then(
-        (result) => {  
-          const newArr = result.map(v => ({...v, amount: 1}))
-        console.log(result);
-        console.log(newArr);
-          setIsLoaded(true);
-          setItems(result);
-        },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
-        (error) => {
-          setIsLoaded(true);
-          setError(error);
-        }
-      );
+    if (productCategories) {
+      window.scrollTo(0, 0)
+      fetch(
+        `https://fakestoreapi.com/products/category/${productCategories.toLowerCase()}?limit=4`
+      )
+        .then((res) => res.json())
+        .then(
+          (result) => {
+            const newArr = result.map((v) => ({ ...v, amount: 1}));
+            console.log(result);
+            console.log(newArr);
+            setIsLoaded(true);
+            setItems(newArr);
+          },
+          // Note: it's important to handle errors here
+          // instead of a catch() block so that we don't swallow
+          // exceptions from actual bugs in components.
+          (error) => {
+            setIsLoaded(true);
+            setError(error);
+          }
+        );
     }
   }, [productCategories]);
 
@@ -108,8 +111,8 @@ function ProductList(props) {
             <label>Women's clothing</label>
           </div>
         </div>
-        <div >
-         <div className={classes.products}>Products</div> 
+        <div>
+          <div className={classes.products}>Products</div>
           <Card
             viewDetails={props.viewDetails}
             onShowPopUp={props.onShowPopUp}

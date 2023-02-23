@@ -14,32 +14,34 @@
   display: flex;
   text-align: left;
   max-width: 100%;
- 
 }
 .searchInput {
-  width: 85%;
+  min-width: 140px;
   border-color: transparent;
   font-size: 15px;
+  font-family: "Josefin Sans";
+  max-width: 200px;
 }
 .searchInput:focus {
   outline: none;
 }
 
 .searchLabel {
-  position: relative;
-  top: 30%;
-  left: 30%;
+  padding: 40px;
+  font-family: "Josefin Sans";
   color: white;
 }
 th {
   position: relative;
-font-size: 15px;;
+  font-size: 15px;
+  font-family: "Josefin Sans";
 }
 td {
   color: #8a8fb9;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
+  font-family: "Josefin Sans";
 }
 
 .tableFooter {
@@ -49,15 +51,19 @@ td {
 }
 
 .emailDiv {
-  display: grid;
-  grid-template-columns: auto auto auto auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   height: 50px;
   background-color: white;
+  font-family: "Josefin Sans";
 }
 .sign {
   width: 150px;
-    background: #fb2e86;
-    height: auto;
-    position: relative;
-    left: 25%;
+  background: #fb2e86;
+  height: auto;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  font-family: "Josefin Sans";
 }

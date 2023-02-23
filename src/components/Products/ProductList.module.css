@@ -1,49 +1,28 @@
 .divide {
   position: relative;
-  top: 25%;
-  padding-left: 5%;
-  display: grid;
-  grid-template-columns: auto auto;
-  margin-top:10%;
-  margin-bottom: 20%;
+  padding: 45px;
+  display: flex;
+  flex-direction: row;
+  margin-top: 5%;
+  margin-bottom: 10%;
 }
 
 .categories {
   position: relative;
   color: #151875;
-  font-size: 17px;
+  font-size: 13px;
   width: 65%;
-  display: grid;
-
+  font-family: "Josefin Sans";
   row-gap: 50px;
-  grid-template-areas:
-    "main"
-    "cat1"
-    "cat2"
-    "cat3"
-    "cat4";
+  display: flex;
+  flex-direction: column;
 }
-.main {
-  grid-area: main;
-}
-.item1 {
-  grid-area: cat1;
-}
-.item2 {
-  grid-area: cat2;
-}
-.item3 {
-  grid-area: cat3;
-}
-.item4 {
-  grid-area: cat4;
-}
-.products
-{
+
+.products {
   position: relative;
   color: #151875;
-  
+  font-family: "Josefin Sans";
   text-decoration: underline;
-  font-size: 20px;
-    bottom: 15%;
+  font-size: 15px;
+  bottom: 15%;
 }

@@ -1,39 +1,68 @@
-
 .slide img {
-    max-height: 500px; 
-    width: 100%;
+  max-height: 500px;
+  width: 100%;
 }
-.box{
-    box-sizing: border-box;
+.box {
+  box-sizing: border-box;
 }
-.navDiv
-{
-    width: 100%;
-height: 250px;
-    background-color: #F6F5FF;;
+.navDiv {
+  width: 100%;
+  height: 230px;
+  font-family: "Josefin Sans";
+  background-color: #f6f5ff;
 }
-.featured
-{
-    color: #1A0B5B;
-    position: relative;
-    font-size: 30px;
-    font-weight: 700;
-    top: 25%;
-    left: 13%;}
-    .nav
-{position: relative;
-    top: 25%;
-    left: 13%;
-    width: 15%;
-    display: grid;
-    grid-template-columns: auto auto auto;
-   
+.featured {
+  color: #1a0b5b;
+  position: relative;
+  font-size: 30px;
+  font-family: "Josefin Sans";
+  font-weight: 700;
+  top: 25%;
+  left: 13%;
 }
-.act
-{
-    color: #FB2E86;
+.nav {
+  position: relative;
+  min-width: 16%;
+  display: flex;
+  flex-direction: row;
+  font-family: "Josefin Sans";
+  padding: 61px 0px 0px 183px;
 }
-.viewHome:hover
-{
-cursor: pointer;
+.prod {
+  color: #fb2e86;
+  padding: 0px 0px 0px 15px;
+  font-family: "Josefin Sans";
+}
+.cart {
+  color: #fb2e86;
+  padding: 0px 115px 0px 10px;
+
+  font-family: "Josefin Sans";
+}
+.deets {
+  position: relative;
+  min-width: 25%;
+  display: flex;
+  flex-direction: row;
+
+  font-family: "Josefin Sans";
+  padding: 61px 0px 0px 183px;
+}
+.lists {
+  position: relative;
+  min-width: 21%;
+  display: flex;
+  flex-direction: row;
+
+  font-family: "Josefin Sans";
+  padding: 61px 0px 0px 183px;
+}
+.viewHome{
+  padding: 0px 0px 0px 15px;
+}
+.viewHome:hover {
+  cursor: pointer;
+}
+.viewHome1:hover {
+  cursor: pointer;
 }

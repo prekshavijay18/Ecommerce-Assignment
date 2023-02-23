@@ -11,13 +11,13 @@ const Support = (props) => {
         return (
           <Fragment>
             <div key={card.id} className={classes["card-contrainer"]}  onClick={() => showProductsHandler(card)}>
-              <div className={classes.top}>
+             
                 <img className={classes.productImg} src={card.image}></img>
-              </div>
 
-              <div className={classes.title}> {card.title}</div>
+              <label className={classes.title}> {card.title}</label>
 
-              <div className={classes.cost}> {card.desc}</div>
+              <label className={classes.cost}> {card.desc}</label>
+         
             </div>
             {/* {showProds&& <ProductList title={card.title}/>} */}
           </Fragment>

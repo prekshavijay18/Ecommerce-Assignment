@@ -1,27 +1,50 @@
-import { Fragment, useState, useContext } from "react";
+import { Fragment, useState, useContext,useRef } from "react";
 import classes from "./Cart.module.css";
 import { DetailedViewContext } from "../../App";
+import { useSelect } from "@mui/base";
+import { useDispatch, useSelector } from "react-redux";
+import { updateItems } from "../../redux/slice/cartSlice";
 
 const Cart = (props) => {
+  const dispatch=useDispatch();
   const { qtyCount, setQtyCount } = useContext(DetailedViewContext);
+  const [amtIsValid,setAmtIsValid]=useState(true);
+    const amountInputRef= useRef();
+    const cartItems= useSelector(state=>state.cart.item)
+    const totalPrice= useSelector(state=>state.cart.totalPrice)
+    const total=totalPrice.toFixed(2);
+const cartTotal=totalPrice+25;
+    const updateCart=(event,item)=>
+    {
+const {value}= event.target;
 
+dispatch(updateItems({...item,amount:value}))
+    }
+  const submitHandler = event => {
+    event.preventDefault();
+    const eneteredAmount=amountInputRef.current.value;
+    const eneteredAmountNO=+eneteredAmount;
+    if(eneteredAmount.trim().length===0||eneteredAmountNO<1||eneteredAmountNO>5)
+    {
+        setAmtIsValid(false);
+        return;
+    }
+  }
   const canBeSubmitted = () => {
     var val = document.getElementById("ship").checked;
     var btnval = document.getElementById("btn");
-    btnval.disabled = true;
-    var val2 = btnval.disabled;
-    if (val) {
-      document.getElementById("btn").setAttribute("disabled", false);
-    }
-    alert(val, val2);
+    btnval.disabled = false;
+    // if (val) {
+    //   document.getElementById("btn").setAttribute("enabled", true);
+    // }
+    // alert(val, val2);
   };
-  const qty = () => {
-    setQtyCount(document.getElementById("qty").value);
-  };
+console.log("insideCart",cartItems)
+
   return (
     <Fragment onClose={props.onClose}>
       <div className={classes.mainDiv}>
-        <div>
+        
           <table className={classes.tab2}>
             <tr>
               <th className={classes.cartTh}> Product</th>
@@ -29,7 +52,8 @@ const Cart = (props) => {
               <th className={classes.cartTh}>Quantity</th>
               <th className={classes.cartTh}>Total</th>
             </tr>
-            {props.data.map((x) => {
+            {cartItems.map((x) => {
+              
               return (
                 <tr>
                   <td className={classes.cartTd}>
@@ -46,36 +70,36 @@ const Cart = (props) => {
                   </td>
                   <td className={classes.cartTd}>
                     <input
+                    // ref={amountInputRef}
                       id="qty"
                       className={classes.qty}
                       type="number"
                       min="1"
-                      max="5"
                       step="1"
                       defaultValue={x.amount}
-                      onChange={qty}
+                      onChange={(event)=>updateCart(event, x)}
                     />
                   </td>
                   <td className={classes.cartTd}>
-                    <label className={classes.tot}>${x.price}</label>
+                    <label className={classes.tot}>${x.price * x.amount}</label>
                   </td>
                 </tr>
               );
             })}
           </table>
-        </div>
+        <div className={classes.totDiv}>
         <label className={classes.totName}>Cart Totals</label>
         <div className={classes.totalDiv}>
           <div>
-            <div>
-              <label className={classes.subTot}>Subtotal:</label>
-              <label className={classes.subTotVal}>$280.00</label>
+            <div  className={classes.subTot}>
+              <label>Subtotal:</label>
+              <label className={classes.subTotVal}>${total}</label>
             </div>
 
             <br></br>
-            <div>
-              <label className={classes.Tot}>Total:</label>
-              <label className={classes.TotVal}>$300.00</label>
+            <div className={classes.subTot}>
+              <label>Total:</label>
+              <label className={classes.subTotVal}>${cartTotal}</label>
             </div>
             <div className={classes.shipDiv}>
               <input
@@ -96,8 +120,7 @@ const Cart = (props) => {
             </div>
           </div>
         </div>
-
-        <label className={classes.space}> </label>
+        </div>
       </div>
     </Fragment>
   );

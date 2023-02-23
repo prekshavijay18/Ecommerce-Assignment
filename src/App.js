@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useState, createContext } from "react";
+import React, { useState, createContext, useReducer } from "react";
 import Header from "./components/Header/Header";
 import Body from "./components/Body/Body";
 import Footer from "./components/Footer/Footer";
@@ -8,6 +8,7 @@ import Cart from "./components/Cart/Cart";
 import Banner from "./components/Header/Banner";
 import ProductList from "./components/Products/ProductList";
 import Categories from "./components/Products/Categories";
+import { minWidth } from "@mui/system";
 
 export const DetailedViewContext = createContext({
   setProductCategories: () => {},
@@ -19,24 +20,31 @@ export const DetailedViewContext = createContext({
   itemsCount: 0,
   setItemsCount: () => {},
   item: [],
+  total: 0,
   setItem: () => {},
   showItemHandler: () => {},
-  qtyCount:1,
-  setQtyCount:()=>{},
-  addItem:(item)=>{},
-    removeItem:(id)=>{}
+  qtyCount: 1,
+  setQtyCount: () => {},
+  addItemHandler: (item) => {},
+  removeItemHandler: (id) => {},
 });
 
 function App() {
   const [details, setDetails] = useState(false);
   const [itemsCount, setItemsCount] = useState(0);
-  const [qtyCount, setQtyCount] = useState(1);
   const [item, setItem] = useState([]);
   const [categories, setCategories] = useState(false);
   const [productCategories, setProductCategories] = useState("");
   const [products, setProducts] = useState(false);
   const [banner, setBanner] = useState("Home");
   const [id, setId] = useState("");
+
+  const addItemHandler = (item) => {
+    //dispatchCartState({ type: "ADD", item: item });
+  };
+  const removeItemHandler = (id) => {
+    // dispatchCartState({ type: "REMOVE", id: id });
+  };
 
   const showCategoryHandler = () => {
     setDetails(false);
@@ -54,12 +62,8 @@ function App() {
       return item + 1;
     });
   };
-  const showQtyHandler = (val) => {
-   
-    setQtyCount(val);
-  };
+
   const showItemHandler = (item) => {
-    item["amount"]=qtyCount;
     setItem((val) => {
       console.log("myCValue", val);
       return [...val, item];
@@ -95,22 +99,18 @@ function App() {
 
   const [cartIsShown, setCartIsShown] = useState(false);
   const showCartHandler = () => {
-    if(itemsCount>0)
-    {
+    // if (itemsCount > 0) {
       setBanner("Cart");
       setCartIsShown(true);
-    }
-    else{
-      setBanner("Home");
-      alert("Add items to cart")
-      setCartIsShown(false);
-  
-    }
+    // } else {
+      // setBanner("Home");
+      // alert("Add items to cart");
+      // setCartIsShown(false);
+   // }
 
     setDetails(false);
     setProducts(false);
     setCategories(false);
-    
   };
 
   const hideCartHandler = () => {
@@ -118,89 +118,92 @@ function App() {
   };
 
   return (
-    <DetailedViewContext.Provider
-      value={{
-        id,
-        setId,
-        productCategories,
-        setProductCategories,
-        showProductsHandler,
-        showDetailsHandler,
-        itemsCount,
-        setItemsCount,
-        showCountHandler,
-        item,
-        setItem,
-        showItemHandler,
-        qtyCount,
-        setQtyCount,
-        showQtyHandler
-      }}
-    >
-      <Header
-        viewHome={showHomeHandler}
-        showCategories={showCategoryHandler}
-        onShowPopUp={showCartHandler}
-        onAdd={showCountHandler}
-        addToCart={showItemHandler}
-      />
-      {banner === "Home" && (
-        <Banner showBanner={showDetailsHandler} Name="Home" />
-      )}
-      {banner === "Product_Details" && (
-        <Banner
-          viewHome={showHomeHandler}
-          showBanner={showDetailsHandler}
-          Name="Product_Details"
-        />
-      )}
-      {banner === "Products_List" && (
-        <Banner
+    <div style={{ minWidth: "1300px" }}>
+      {" "}
+      <DetailedViewContext.Provider
+        value={{
+          id,
+          setId,
+          productCategories,
+          setProductCategories,
+          showProductsHandler,
+          showDetailsHandler,
+          itemsCount,
+          setItemsCount,
+          showCountHandler,
+          item,
+          setItem,
+          showItemHandler,
+          addItemHandler,
+          removeItemHandler,
+        }}
+      >
+        <Header
           viewHome={showHomeHandler}
           showCategories={showCategoryHandler}
-          showBanner={showDetailsHandler}
-          Name="Products_List"
-        />
-      )}
-      {banner === "Categories" && (
-        <Banner
-          viewHome={showHomeHandler}
-          showBanner={showDetailsHandler}
-          Name="Categories"
-        />
-      )}
-      {banner === "Cart" && (
-        <Banner
-          viewHome={showHomeHandler}
-          showBanner={showCartHandler}
-          Name="Cart"
-        />
-      )}
-
-      {!cartIsShown && !details && !products && !categories && (
-        <Body
-          viewDetails={showDetailsHandler}
           onShowPopUp={showCartHandler}
+          onAdd={showCountHandler}
           addToCart={showItemHandler}
         />
-      )}
-      {details && !products && !cartIsShown && (
-        <ProductDetail addToCart={showItemHandler} />
-      )}
-      {categories && !details && !products && !cartIsShown && (
-        <Categories showProducts={showProductsHandler} />
-      )}
-      {products && !details && !categories && !cartIsShown && (
-        <ProductList
-          viewDetails={showDetailsHandler}
-          onShowPopUp={showCartHandler}
-        />
-      )}
-      {cartIsShown && !details && !products && !categories && (
-        <Cart data={item} qty={showQtyHandler}/>
-      )}
-      <Footer viewHome={showHomeHandler} />
-    </DetailedViewContext.Provider>
+        {banner === "Home" && (
+          <Banner showBanner={showDetailsHandler} Name="Home" />
+        )}
+        {banner === "Product_Details" && (
+          <Banner
+            viewHome={showHomeHandler}
+            showBanner={showDetailsHandler}
+            showCategories={showCategoryHandler}
+            Name="Product_Details"
+          />
+        )}
+        {banner === "Products_List" && (
+          <Banner
+            viewHome={showHomeHandler}
+            showCategories={showCategoryHandler}
+            showBanner={showDetailsHandler}
+            Name="Products_List"
+          />
+        )}
+        {banner === "Categories" && (
+          <Banner
+            viewHome={showHomeHandler}
+            showBanner={showDetailsHandler}
+            Name="Categories"
+          />
+        )}
+        {banner === "Cart" && (
+          <Banner
+            viewHome={showHomeHandler}
+            showBanner={showCartHandler}
+            Name="Cart"
+          />
+        )}
+
+        {!cartIsShown && !details && !products && !categories && (
+          <Body
+            viewDetails={showDetailsHandler}
+            onShowPopUp={showCartHandler}
+            addToCart={showItemHandler}
+          />
+        )}
+        {details && !products && !cartIsShown && (
+          <ProductDetail addToCart={showItemHandler} />
+        )}
+        {categories && !details && !products && !cartIsShown && (
+          <Categories showProducts={showProductsHandler} />
+        )}
+        {products && !details && !categories && !cartIsShown && (
+          <ProductList
+            viewDetails={showDetailsHandler}
+            onShowPopUp={showCartHandler}
+          />
+        )}
+        {cartIsShown && !details && !products && !categories && (
+          <Cart data={item} />
+        )}
+        <Footer viewHome={showHomeHandler} />
+      </DetailedViewContext.Provider>
+    </div>
   );
 }
 

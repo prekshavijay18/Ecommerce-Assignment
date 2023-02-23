@@ -3,8 +3,11 @@ import React, { Fragment, useState, useEffect, useContext, Alert } from "react";
 import { DetailedViewContext } from "../../App";
 import star from "../../assests/Star.png";
 
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/slice/cartSlice";
 import wish from "../../assests/wishlist.png";
 function ProductDetail(props) {
+  const dispatch = useDispatch();
   const { id, setId } = useContext(DetailedViewContext);
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -12,12 +15,16 @@ function ProductDetail(props) {
   const { showCountHandler } = useContext(DetailedViewContext);
   
   const {item, showItemHandler} = useContext(DetailedViewContext);
+  const addCartItem = (card) => {
+    dispatch(addToCart({ ...card}));
+  };
   useEffect(() => {
+    window.scrollTo(0, 0)
     fetch(`https://fakestoreapi.com/products/${id}`)
       .then((res) => res.json())
       .then(
         (result) => {
-          const newArr = result.map(v => ({...v, amount: 1}))
+          const newArr = {...result, amount: 1}
           console.log(result);
           console.log(newArr);
           setIsLoaded(true);
@@ -41,16 +48,14 @@ function ProductDetail(props) {
         <div className={classes["grid-container"]}>
           <div className={classes["div-container"]}>
             <img className={classes.item1} src={items.image} />
-            <img className={classes.item2} src={items.image} />
-            <img className={classes.item3} src={items.image} />
+            <img className={classes.item1} src={items.image} />
+            <img className={classes.item1} src={items.image} />
           </div>
 
           <img className={classes.mainImg} src={items.image} />
           <div className={classes.details}>
-            <div>
+         
               <label className={classes.title}>{items.title}</label>
-            </div>
-            <br></br>
             <div>
               <label className={classes.rating}>
                 {items?.rating?.rate ? items?.rating?.rate : 0.0}
@@ -60,24 +65,16 @@ function ProductDetail(props) {
                 ({items?.rating?.count ? items?.rating?.count : 0})
               </label>
             </div>
-            <br></br>
-            <div>
-              {" "}
               <label className={classes.rating}>${items.price}</label>
-            </div>
 
-            <br></br>
-            <div>
               <label className={classes.desc}>{items.description}</label>
-            </div>
 
-            <br></br>
-            <div>
+            <div className={classes.addDiv}>
               <button
                 onClick={() => {
                   showCountHandler();
                   added();
-                  showItemHandler(items);
+                  addCartItem(items);
                 }}
                 className={classes.add}
               >
@@ -86,7 +83,7 @@ function ProductDetail(props) {
               <img src={wish} className={classes.wish} />
             </div>
           </div>
-        </div>
+        </ div>
       </div>
     </Fragment>
   );

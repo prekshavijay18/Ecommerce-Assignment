@@ -1,55 +1,47 @@
 .main {
-  padding-left: 5%;
-  position: relative;
-  display: grid;
-  grid-template-columns: auto auto auto;
-  row-gap: 20%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+   justify-content: flex-start;
+    align-items: center;
+    padding: 20px 0px 0px 175px;
 }
 .card-contrainer {
- height: 306px;;
-  width: 360px;
-  left: 0px;
-  top: 0px;
-  border-radius: 0px;
-
+  height: 280px;
+  width: 310px;
   overflow: hidden;
   background: #ffffff;
-  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
   transition: 0.3s;
   animation: ease-in;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 30px;
 }
 .card-contrainer:hover {
   transform: scale(1.1);
-  box-shadow: 0px 0px 15px 0px;
+  box-shadow: 0px 0px 1px 0px;
 }
 .top {
   overflow: hidden;
-
   height: 236px;
-  width: 360px;
-
+  width: 310px;
   border-radius: 0px;
-
   background: #f6f7fb;
 }
 
 .bottom {
-  overflow: hidden;
-  height: 361px;
-  width: 360px;
-  display: grid;
-  border-radius: 0px;
-  grid-template-columns: auto auto auto;
-  background: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height:75px;
+  align-items: center;
 }
 
 .productImg {
-  width: 70%;
-  height: 100%;
-  position: relative;
-  left: 10%;
+  width: 50%;
+  height: 70%;
+  padding: 25px 0px 0px 75px;
   background-color: #f6f7fb;
   mix-blend-mode: darken;
 }
@@ -59,7 +51,8 @@
   font-size: 13px;
   line-height: 22px;
   text-align: center;
-  padding-bottom: 5%;
+  padding: 0px 45px 25px 15px;
+  font-family: 'Lato';
 }
 .rating {
   color: #151875;
@@ -67,28 +60,35 @@
   line-height: 16px;
   text-align: center;
   padding-bottom: 5%;
+  font-family: 'Josefin Sans';
 }
 .cost {
   color: #151875;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 17px;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 15px;
   text-align: center;
+  font-family: 'Lato';
+  padding: 0px 0px 25px 0px;
 }
 .space {
   padding-bottom: 5%;
 }
 
 .details {
-  z-index: 1;
-  position: absolute;
-  background: #08d15f;
-  border-radius: 0.5rem;
-  border-color: transparent;
-
-  bottom: 40%;
-  height: 10%;
-  color: white;
+ 
+  width: 40%;
+  height:12%;
+    z-index: 1;
+    left: 29%;
+    top: 3%;
+    position: relative;
+    background: #08D15F;
+    border-radius: 2px;
+    border-color: transparent;
+    padding: 5px 0px 0px 0px;
+    color: white;
+    font-family: 'Josefin Sans';
 }
 .details:hover {
   cursor: pointer;
@@ -96,8 +96,7 @@
 .quickadd {
   z-index: 1;
   position: absolute;
-
-  padding-left: 75px;
+  left:3%;
   color: white;
 }
 .quickadd:hover {
@@ -106,6 +105,6 @@
 .wishlist {
   z-index: 1;
   position: absolute;
-  padding-left: 50px;
+left:13%;
   color: white;
 }

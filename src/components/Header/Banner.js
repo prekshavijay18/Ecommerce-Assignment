@@ -39,9 +39,10 @@ function Banner(props) {
         <div className={classes.navDiv}>
           {" "}
           <label className={classes.featured}>Product Details</label>
-          <div className={classes.nav}>
-          <label className={classes.viewHome} onClick={props.viewHome}>Home ></label>
-          <label className={classes.act} >Product Details</label>
+          <div className={classes.deets}>
+          <label className={classes.viewHome1} onClick={props.viewHome}>Home ></label>
+          <label className={classes.viewHome} onClick={props.showCategories} >Categories ></label>
+          <label className={classes.prod} >Product Details</label>
           </div>
         </div>
       )}
@@ -49,10 +50,10 @@ function Banner(props) {
         <div className={classes.navDiv}>
           {" "}
           <label className={classes.featured}>Products</label>
-          <div className={classes.nav}>
-          <label className={classes.viewHome} onClick={props.viewHome} >Home ></label>
+          <div className={classes.lists}>
+          <label className={classes.viewHome1} onClick={props.viewHome} >Home ></label>
           <label className={classes.viewHome} onClick={props.showCategories} >Categories ></label>
-          <label className={classes.act} >Products</label>
+          <label className={classes.prod} >Products</label>
           </div>
         </div>
       )}
@@ -61,8 +62,8 @@ function Banner(props) {
           {" "}
           <label className={classes.featured}>Products</label>
           <div className={classes.nav}>
-          <label className={classes.viewHome} onClick={props.viewHome} >Home ></label>
-          <label className={classes.act} >Categories</label>
+          <label className={classes.viewHome1} onClick={props.viewHome} >Home ></label>
+          <label className={classes.prod} >Categories</label>
           </div>
         </div>
       )}
@@ -72,7 +73,7 @@ function Banner(props) {
           <label className={classes.featured}>Shopping Cart</label>
           <div className={classes.nav}>
           <label className={classes.viewHome} onClick={props.viewHome} >Home ></label>
-          <label className={classes.act} >Cart</label>
+          <label className={classes.cart} >Cart</label>
           </div>
         </div>
       )}
